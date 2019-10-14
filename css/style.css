@@ -168,35 +168,3 @@ button {
     margin-left: 15px;
     margin-right: 15px;
 }
-
-.start {
-    display: inline-block;
-    position: relative;
-    text-align: center;
-}
-
-.start:hover .btnstart {
-    opacity: 0;
-    transition: opacity .5s .125s ease-out;
-}
-
-.start .creat, .start .join {
-    opacity: 0;
-}
-
-.start:hover .creat, .start:hover .join {
-    opacity: 1;
-    transition: opacity .5s .125s ease-out;
-}
-
-.btnstart {
-    opacity: 1;
-    pointer-events: none;
-    transition: opacity .5s .75s ease-out;
-}
-
-.creat, .join {
-    display: inline-block;  
-    transition: opacity .5s .75s ease-out;
-    
-}
