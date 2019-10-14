@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spaceship Arena</title>
+  <link href="css/style.css" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="img/favicon.png" />
+</head>
+
+<body>
+  <header class="container centerwrap logo">
+    <img src="img/logo.png" alt="logo Spaceship Arena">
+  </header>
+  <main class="container centerwrap">
+    <nav class="button-start big">Start</nav>
+  </main>
+  <footer class="container">
+    <nav class="button-start">Regles du jeu</nav>
+    <audio id="audio" autoplay loop>
+      <source src="audio/pulsation.mp3" type='audio/mpeg;codecs="mp3"' />
+    </audio>
+    <button onclick="muteAudio()">
+      <img src="img/sound.png" id="mute_img" alt="button mute sound"/></button>
+  </footer>
+  <script src="js/menu.js"></script>
+</body>
+
+</html>
