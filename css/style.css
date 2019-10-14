@@ -132,6 +132,14 @@ body {
     text-transform: uppercase;
     background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 52, 86, 0)), to(rgba(0, 52, 86, 1)));
     background-image: linear-gradient(rgba(0, 52, 86, 0), rgba(0, 52, 86, 1));
+    -webkit-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+}
+
+.button-start:hover {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 1)), to(rgba(255, 255, 255, 1)));
+    background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
+    color: #03151f;
 }
 
 .big {
