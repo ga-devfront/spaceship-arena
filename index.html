@@ -5,6 +5,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#03151f">
   <title>Spaceship Arena</title>
   <link href="css/style.css" rel="stylesheet" />
   <link rel="icon" type="image/png" href="img/favicon.png" />
@@ -16,21 +17,26 @@
   </header>
   <main class="container centerwrap">
     <nav class="margtop start">
-      <button class="button-start big"><img src="img/creatserv.png" alt="symbole create game"><br>Create game
+      <button class="button-start big square"><img src="img/creatserv.png" alt="symbole create game"
+          class="marg-bot"><br>Create game
       </button>
-      <button class="button-start big">Start</button>
-      <button class="button-start big"><img src="img/joinserv.png" alt="symbole join game"><br>Join game</button>
+      <button class="button-start big" id="start">Start</button>
+      <button class="button-start big square"><img src="img/joinserv.png" alt="symbole join game"
+          class="marg-bot"><br>Join game</button>
     </nav>
   </main>
   <footer class="container">
     <nav class="button-start marg-lr">Regles du jeu</nav>
     <audio id="audio" autoplay loop>
-      <source src="audio/pulsation.mp" type='audio/mpeg;codecs="mp3"' />
+      <source src="audio/pulsation.mp3" type='audio/mpeg;codecs="mp3"'/>
     </audio>
     <button onclick="muteAudio()">
       <img src="img/sound.png" id="mute_img" alt="button mute sound" /></button>
   </footer>
   <script src="js/menu.js"></script>
+  <audio id="audio_click">
+    <source src="audio/btn.mp3" type='audio/mpeg;codecs="mp3"' />
+  </audio>
 </body>
 
 </html>

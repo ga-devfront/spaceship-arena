@@ -126,7 +126,6 @@ body {
 }
 
 .button-start {
-    display: inline-block;
     border: solid white 3px;
     border-radius: 35px;
     padding: 10px 35px 10px 35px;
@@ -136,7 +135,6 @@ body {
     -webkit-transition-duration: 0.8s;
     transition-duration: 0.8s;
     color: white;
-    font-family: "pixelmix", Arial;
 }
 
 .button-start:hover {
@@ -162,9 +160,24 @@ footer {
 button {
     border: none;
     background: none;
+    font-family: "pixelmix", Arial;
 }
 
 .marg-lr {
     margin-left: 15px;
     margin-right: 15px;
+}
+
+.square {
+    height: 200px;
+    width: 200px;
+}
+
+.marg-bot {
+    margin-bottom: 15px;
+}
+
+.disappear {
+    opacity: 0;
+    transition-duration: 0.5s;
 }
