@@ -125,7 +125,7 @@ body {
     }
 }
 
-.button-start {
+.button {
     border: solid white 3px;
     border-radius: 35px;
     padding: 10px 35px 10px 35px;
@@ -137,10 +137,30 @@ body {
     color: white;
 }
 
-.button-start:hover {
+.button:hover {
     background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 1)), to(rgba(255, 255, 255, 1)));
     background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
     color: #03151f;
+}
+
+#img_join {
+    background-image: url("../img/joinserv.png");
+    -webkit-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+}
+
+#img_creat {
+    background-image: url("../img/creatserv.png");
+    -webkit-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+}
+
+.button:hover #img_join {
+    background-image: url("../img/joinserv_hover.png");
+}
+
+.button:hover #img_creat {
+    background-image: url("../img/creatserv_hover.png");
 }
 
 .big {
@@ -180,4 +200,11 @@ button {
 .disappear {
     opacity: 0;
     transition-duration: 0.5s;
+}
+
+#creat, #join {
+    margin-right: 15px;
+    margin-left: 15px;
+    opacity: 0;
+    animation-duration: 0.4s;
 }

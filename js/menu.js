@@ -8,12 +8,10 @@ function muteAudio() {
         document.getElementById("audio").volume = 0.2;
         imgAudio.setAttribute("src", "img/middlesound.png");
     } //turne volume to 0.2
-    
     else if (audio.volume === 0.2) {
         document.getElementById("audio").volume = 0;
         imgAudio.setAttribute("src", "img/nosound.png");
     } //turne volume off
-    
     else {
         document.getElementById("audio").volume = 0.5;
         imgAudio.setAttribute("src", "img/sound.png");
@@ -22,9 +20,19 @@ function muteAudio() {
 
 
 //transition start to select game //
-let buttonStart = document.getElementById("start");
-let buttonSound = document.getElementById("audio_click")
+let buttonStart = document.getElementById("start"); //select button start
+let buttonSound = new Audio("audio/btn.mp3"); //select audio button
+let buttonJoin = document.getElementById("join"); //select button join
+let buttonCreat = document.getElementById("creat"); //select button creat
+
 buttonStart.onclick = function nextMenu() {
-    buttonStart.classList.add("disappear");
-    buttonSound.play();
+    buttonStart.classList.add("disappear"); //joue l'animation pour disparaitre
+    buttonSound.play(); //joue le son du bouton
+    setTimeout(() => {
+        buttonStart.style.display = "none";
+    }, 800);
+    setTimeout(() => {
+        buttonJoin.style.opacity = "1";
+        buttonCreat.style.opacity = "1"; //fait apparaitre les deux menus
+    }, 805);
 }
