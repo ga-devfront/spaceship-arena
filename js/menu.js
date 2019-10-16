@@ -1,38 +1,25 @@
-//button change volume //
-let audio = document.getElementById("audio"); //select audio
-let imgAudio = document.getElementById("mute_img"); //select img
-audio.volume = 0.5;
+let background_sound = new Audio("audio/pulsation.mp3"); //select audio background
+let buttonSound = new Audio("audio/btn.mp3"); //select audio click button
 
-function muteAudio() {
-	if (audio.volume === 0.5) {
-		document.getElementById("audio").volume = 0.2;
-		imgAudio.setAttribute("src", "img/middlesound.png");
-	} //turne volume to 0.2
-	else if (audio.volume === 0.2) {
-		document.getElementById("audio").volume = 0;
-		imgAudio.setAttribute("src", "img/nosound.png");
-	} //turne volume off
-	else {
-		document.getElementById("audio").volume = 0.5;
-		imgAudio.setAttribute("src", "img/sound.png");
-	} //turne volume on
-}
+let step = 0; //initialise les step à 0
 
-//son click button
-let buttonSound = new Audio("audio/btn.mp3"); //select audio button
+let body = document.getElementById("body");
+let header = document.getElementById("header");
+let app = document.getElementById("app");
+let footer = document.getElementById("footer");
 
-//transition start to select game //
-let buttonStart = document.getElementById("start"); //select button start
-let buttonJoin = document.getElementById("join"); //select button join
-let buttonCreat = document.getElementById("creat"); //select button creat
+const newImg = document.createElement("img");
 
-buttonStart.onclick = () => {
-	buttonStart.classList.add("disappear"); //joue l'animation pour disparaitre
-	setTimeout(() => {
-		buttonStart.style.display = "none";
-	}, 800);
-	setTimeout(() => {
-		buttonJoin.style.opacity = "1";
-		buttonCreat.style.opacity = "1"; //fait apparaitre les deux menus
-	}, 805);
-}
+function supress(x){
+    while (x.firstChild){
+        x.removeChild(x.firstChild);
+    }
+} //supression du contenue
+
+if (step == 0) {
+supress(header);
+supress(app);
+supress(footer);
+header.appendChild(newImg);
+document.querySelector("#header img").setAttribute("src", "img/logo.png");
+} 

@@ -125,22 +125,11 @@ body {
     }
 }
 
-.button {
-    border: solid white 3px;
-    border-radius: 35px;
-    text-transform: uppercase;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 52, 86, 0)), to(rgba(0, 52, 86, 1)));
-    background-image: linear-gradient(rgba(0, 52, 86, 0), rgba(0, 52, 86, 1));
-    -webkit-transition-duration: 0.8s;
-    transition-duration: 0.8s;
-    color: white;
-}
-
-.button.large {
+button.large {
     padding: 10px 35px 10px 35px;
 }
 
-.button.small {
+button.small {
     padding: 10px 10px 10px 10px;
 }
 
@@ -150,31 +139,11 @@ body {
     color: #03151f;
 }
 
-#img_join {
-    background-image: url("../img/joinserv.png");
-    -webkit-transition-duration: 0.8s;
-    transition-duration: 0.8s;
-}
-
-#img_creat {
-    background-image: url("../img/creatserv.png");
-    -webkit-transition-duration: 0.8s;
-    transition-duration: 0.8s;
-}
-
-.button:hover #img_join {
-    background-image: url("../img/joinserv_hover.png");
-}
-
-.button:hover #img_creat {
-    background-image: url("../img/creatserv_hover.png");
-}
-
-.big {
+.big-font {
     font-size: 1.8em;
 }
 
-.margtop {
+.margtop100 {
     margin-top: 100px;
 }
 
@@ -185,23 +154,29 @@ footer {
 }
 
 button {
-    border: none;
-    background: none;
     font-family: "pixelmix", Arial;
     font-size: 1em;
+    border: solid white 3px;
+    border-radius: 35px;
+    text-transform: uppercase;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 52, 86, 0)), to(rgba(0, 52, 86, 1)));
+    background-image: linear-gradient(rgba(0, 52, 86, 0), rgba(0, 52, 86, 1));
+    -webkit-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+    color: white;
 }
 
-.marg-lr {
+.marg-lr10 {
     margin-left: 10px;
     margin-right: 10px;
 }
 
-.square {
+button .square {
     height: 200px;
     width: 200px;
 }
 
-.marg-bot {
+.marg-bot15 {
     margin-bottom: 15px;
 }
 
@@ -211,46 +186,8 @@ button {
             transition-duration: 0.5s;
 }
 
-#creat, #join {
-    margin-right: 15px;
-    margin-left: 15px;
-    opacity: 0;
-    -webkit-animation-duration: 0.4s;
-            animation-duration: 0.4s;
-}
-
-#insta {
-    background-image: url("../img/insta.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    -webkit-transition-duration: 0.8s;
-    transition-duration: 0.8s;
-}
-
-.button:hover #insta {
-    background-image: url("../img/insta_hover.png");
-}
-
-#fb {
-    background-image: url("../img/fb.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    -webkit-transition-duration: 0.8s;
-    transition-duration: 0.8s;
-}
-
-.button:hover #fb {
-    background-image: url("../img/fb_hover.png");
-}
-
-#twt {
-    background-image: url("../img/twitter.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    -webkit-transition-duration: 0.8s;
-    transition-duration: 0.8s;
-}
-
-.button:hover #twt {
-    background-image: url("../img/twitter_hover.png");
+.appear {
+    opacity: 1;
+    -webkit-transition-duration: 0.5s;
+            transition-duration: 0.5s;
 }
