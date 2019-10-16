@@ -180,14 +180,8 @@ button .square {
     margin-bottom: 15px;
 }
 
-.disappear {
+.opacitytest {
     opacity: 0;
     -webkit-transition-duration: 0.5s;
-            transition-duration: 0.5s;
-}
-
-.appear {
-    opacity: 1;
-    -webkit-transition-duration: 0.5s;
-            transition-duration: 0.5s;
+    transition-duration: 0.5s;
 }

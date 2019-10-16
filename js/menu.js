@@ -15,8 +15,16 @@ function newEl(emplacement, type) {
 
 function newElement(emplacement, type, attribute, valeurAttribute) {
     const newEl = document.createElement(type);
-    emplacement.appendChild(newEl);
     newEl.setAttribute(attribute, valeurAttribute);
+    newEl.classList.add("opacitytest");
+    emplacement.appendChild(newEl);
+    setTimeout(appear, 500);
+    function appear (){
+        if (newEl.style.opacity == 0) {
+            newEl.style.opacity = "1";
+            clearTimeout;
+        }
+    }
 }
 
 
@@ -33,4 +41,5 @@ if (step == 0) {
     supress(app);
     supress(footer);
     newElement(header, "img", "src", "img/logo.png");
+    newElement(footer, "img", "src", "img/fb.png")
 }
