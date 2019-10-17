@@ -13,13 +13,11 @@ html {
 }
 
 body {
+
     margin: 0;
     padding-top: 8%;
     min-height: 100%;
     overflow: hidden;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: contain;
     color: white;
     font-family: "pixelmix", Arial;
 }
