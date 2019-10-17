@@ -98,6 +98,10 @@ if (step == 0) {
     supress(app);
     supress(footer);
 
+    header.classList.add("fade");
+    app.classList.add("fade");
+    footer.classList.add("fade");
+
         newImg(header, "img/logo.png", "logo SpaceShip Arena", "none");
 
         newTextButton(app, "start", "Start", "large", "big-font");
@@ -137,6 +141,12 @@ if (step == 0) {
             step++;
             deroulementApp ();
         });
+
+        window.addEventListener("load", function(e) {
+            header.classList.remove('fade');
+            app.classList.remove('fade');
+            footer.classList.remove('fade');
+          });
     }
 
     if (step == 1) {
