@@ -19,6 +19,63 @@ function newButton(emplacement, myID, myClass, myClass2) {
     })
 } //function for new element
 
+
+function newTextButton(emplacement, myID, myText, myClass, myClass2) {
+    const newEl = document.createElement("button");
+    newEl.setAttribute("id", myID);
+    newEl.classList.add(myClass, myClass2);
+    emplacement.appendChild(newEl);
+    const newTxt = document.createTextNode(myText);
+    newEl.appendChild(newTxt);
+    newEl.addEventListener("mouseover", function(){
+        buttonSound.play();
+    })
+} //function for new element
+
+function newImgButton(emplacement, myID, myImg, myImgHover, Alternative, myClass, myClass2) {
+    const newEl = document.createElement("button");
+    newEl.setAttribute("id", myID);
+    newEl.classList.add(myClass, myClass2);
+    emplacement.appendChild(newEl);
+    const newImg = document.createElement("img");
+    newImg.setAttribute("src", myImg);
+    newImg.setAttribute("alt", Alternative);
+    newEl.appendChild(newImg);
+
+        newEl.addEventListener("mouseover", function(){
+            buttonSound.play();
+            newImg.src = myImgHover;
+        })
+
+        newEl.addEventListener("mouseout", function(){
+            newImg.src = myImg;
+        })
+
+} //function for new element
+
+function newImgTextButton(emplacement, myID, myImg, myImgHover, myText, Alternative, myClass, myClass2, myClass3) {
+    const newEl = document.createElement("button");
+    newEl.setAttribute("id", myID);
+    newEl.classList.add(myClass, myClass2, myClass3);
+    emplacement.appendChild(newEl);
+    const newImg = document.createElement("img");
+    newImg.setAttribute("src", myImg);
+    newImg.setAttribute("alt", Alternative);
+    newEl.appendChild(newImg);
+    const newTxt = document.createTextNode(myText);
+    newEl.appendChild(newTxt);
+
+        newEl.addEventListener("mouseover", function(){
+            buttonSound.play();
+            newImg.src = myImgHover;
+        })
+
+        newEl.addEventListener("mouseout", function(){
+            newImg.src = myImg;
+        })
+
+} //function for new element
+
 function newImg(emplacement, source, alternative, myClass) {
     const newEl = document.createElement("img");
     newEl.setAttribute("src", source);
@@ -27,11 +84,6 @@ function newImg(emplacement, source, alternative, myClass) {
     emplacement.appendChild(newEl);
 } //function for new image
 
-function newText(emplacement, myText) {
-    const newEl = document.createTextNode(myText);
-    emplacement.appendChild(newEl);
-} //function for new element
-
 
 function supress(selection) {
     while (selection.firstChild) {
@@ -39,7 +91,7 @@ function supress(selection) {
     }
 } //supression du contenue
 
-
+function deroulementApp (){
 if (step == 0) {
     supress(header);
     supress(app);
@@ -47,17 +99,12 @@ if (step == 0) {
 
         newImg(header, "img/logo.png", "logo SpaceShip Arena", "none");
 
-        newButton(app, "start", "large", "big-font");
-        newText(start, "Start", "none");
+        newTextButton(app, "start", "Start", "large", "big-font");
 
-        newButton(footer, "insta", "small", "marg-lr10");
-        newImg(insta, "img/insta.png", "symbole instagram", "none");
-        newButton(footer, "fb", "small", "nmarg-lr10");
-        newImg(fb, "img/fb.png", "symbole facebook", "none");
-        newButton(footer, "twitter", "small", "marg-lr10");
-        newImg(twitter, "img/twitter.png", "symbole twitter", "none");
-        newButton(footer, "rules", "large", "marg-lr10");
-        newText(rules, "Game rules");
+        newImgButton(footer, "instagram", "img/insta.png", "img/insta_hover.png", "partager sur instagram", "small", "marg-lr10");
+        newImgButton(footer, "facebook", "img/fb.png", "img/fb_hover.png", "partager sur facebook", "small", "marg-lr10");
+        newImgButton(footer, "twitter", "img/twitter.png", "img/twitter_hover.png", "partager sur twitter", "small", "marg-lr10");
+        newTextButton(footer, "rules", "Game rules", "large", "marg-lr10");
         newButton(footer, "sound_volume", "nostyle", "marg-lr10");
         newImg(sound_volume, "img/sound.png", "contrôle du son", "none");
         let imgSound = document.querySelector("#sound_volume img");
@@ -73,16 +120,29 @@ if (step == 0) {
           sound_volume.addEventListener('click', function() {
             if (backgroundSound.volume === 0.5) {
                 backgroundSound.volume = 0.2;
-                imgSound.setAttribute("src", "img/middlesound.png");
+                imgSound.src = "img/middlesound.png";
             } //turne volume to 0.2
             else if (backgroundSound.volume === 0.2) {
                 backgroundSound.volume = 0;
-                imgSound.setAttribute("src", "img/nosound.png");
+                imgSound.src = "img/nosound.png";
             } //turne volume off
             else {
                 backgroundSound.volume = 0.5;
-                imgSound.setAttribute("src", "img/sound.png");
+                imgSound.src = "img/sound.png";
             } //turne volume on
         });
-    
+
+        start.addEventListener("click", function() {
+            step++;
+            deroulementApp ();
+        });
     }
+
+    if (step == 1) {
+        supress(app);
+        newImgTextButton(app, "creat", "img/creatserv.png", "img/creatserv_hover.png", "Creat new game", "Button creat new game", "marg-lr10", "square", "big-font");
+        newImgTextButton(app, "join", "img/joinserv.png", "img/joinserv_hover.png", "Join game", "Button join game", "marg-lr10", "square" , "big-font");
+    }
+}
+
+deroulementApp ();
