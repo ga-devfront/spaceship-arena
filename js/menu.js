@@ -61,6 +61,7 @@ function newImgTextButton(emplacement, myID, myImg, myImgHover, myText, Alternat
     const newImg = document.createElement("img");
     newImg.setAttribute("src", myImg);
     newImg.setAttribute("alt", Alternative);
+    newImg.classList.add("marg-bot15");
     newEl.appendChild(newImg);
     const newTxt = document.createTextNode(myText);
     newEl.appendChild(newTxt);
