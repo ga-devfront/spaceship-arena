@@ -4,7 +4,6 @@ let buttonSound = new Audio("audio/btn.mp3"); //select audio click button
 
 let step = 0; //initialise les step à 0
 
-let body = document.getElementById("body");
 let header = document.getElementById("header");
 let app = document.getElementById("app");
 let footer = document.getElementById("footer");
