@@ -14,7 +14,7 @@ function newButton(emplacement, myID, myClass, myClass2) {
     newEl.setAttribute("id", myID);
     newEl.classList.add(myClass, myClass2);
     emplacement.appendChild(newEl);
-    newEl.addEventListener("mouseover", function(){
+    newEl.addEventListener("mouseover", function () {
         buttonSound.play();
     })
 } //function for new element
@@ -27,7 +27,7 @@ function newTextButton(emplacement, myID, myText, myClass, myClass2) {
     emplacement.appendChild(newEl);
     const newTxt = document.createTextNode(myText);
     newEl.appendChild(newTxt);
-    newEl.addEventListener("mouseover", function(){
+    newEl.addEventListener("mouseover", function () {
         buttonSound.play();
     })
 } //function for new element
@@ -42,14 +42,14 @@ function newImgButton(emplacement, myID, myImg, myImgHover, Alternative, myClass
     newImg.setAttribute("alt", Alternative);
     newEl.appendChild(newImg);
 
-        newEl.addEventListener("mouseover", function(){
-            buttonSound.play();
-            newImg.src = myImgHover;
-        })
+    newEl.addEventListener("mouseover", function () {
+        buttonSound.play();
+        newImg.src = myImgHover;
+    })
 
-        newEl.addEventListener("mouseout", function(){
-            newImg.src = myImg;
-        })
+    newEl.addEventListener("mouseout", function () {
+        newImg.src = myImg;
+    })
 
 } //function for new element
 
@@ -66,14 +66,14 @@ function newImgTextButton(emplacement, myID, myImg, myImgHover, myText, Alternat
     const newTxt = document.createTextNode(myText);
     newEl.appendChild(newTxt);
 
-        newEl.addEventListener("mouseover", function(){
-            buttonSound.play();
-            newImg.src = myImgHover;
-        })
+    newEl.addEventListener("mouseover", function () {
+        buttonSound.play();
+        newImg.src = myImgHover;
+    })
 
-        newEl.addEventListener("mouseout", function(){
-            newImg.src = myImg;
-        })
+    newEl.addEventListener("mouseout", function () {
+        newImg.src = myImg;
+    })
 
 } //function for new element
 
@@ -92,16 +92,21 @@ function supress(selection) {
     }
 } //supression du contenue
 
-function deroulementApp (){
-if (step == 0) {
-    supress(header);
-    supress(app);
-    supress(footer);
+function fadeIn(select){
+    select.classList.add('show');
+    select.classList.remove('hide');  
+  }
 
-    header.classList.add("fade");
-    app.classList.add("fade");
-    footer.classList.add("fade");
+function fadeOut(select){
+    select.classList.add('hide');
+    select.classList.remove('show');
+  }
 
+function deroulementApp() {
+    if (step == 0) {
+        supress(header);
+        supress(app);
+        supress(footer);
         newImg(header, "img/logo.png", "logo SpaceShip Arena", "none");
 
         newTextButton(app, "start", "Start", "large", "big-font");
@@ -114,15 +119,15 @@ if (step == 0) {
         newImg(sound_volume, "img/sound.png", "contrôle du son", "none");
         let imgSound = document.querySelector("#sound_volume img");
         backgroundSound.volume = 0.5;
-        
-        backgroundSound.addEventListener("load", function() {
+
+        backgroundSound.addEventListener("load", function () {
             backgroundSound.play();
         }, true);
         backgroundSound.src = backgroundSoundSource;
         backgroundSound.autoplay = true;
         backgroundSound.loop = true;
 
-          sound_volume.addEventListener('click', function() {
+        sound_volume.addEventListener('click', function () {
             if (backgroundSound.volume === 0.5) {
                 backgroundSound.volume = 0.2;
                 imgSound.src = "img/middlesound.png";
@@ -137,23 +142,29 @@ if (step == 0) {
             } //turne volume on
         });
 
-        start.addEventListener("click", function() {
-            step++;
-            deroulementApp ();
-        });
+        fadeIn(header);
+        fadeIn(app);
+        fadeIn(footer);
 
-        window.addEventListener("load", function(e) {
-            header.classList.remove('fade');
-            app.classList.remove('fade');
-            footer.classList.remove('fade');
-          });
+        start.addEventListener("click", function () {
+            step++;
+            deroulementApp();
+            fadeOut(app);
+        });
     }
 
     if (step == 1) {
-        supress(app);
-        newImgTextButton(app, "creat", "img/creatserv.png", "img/creatserv_hover.png", "Creat new game", "Button creat new game", "marg-lr10", "square", "big-font");
-        newImgTextButton(app, "join", "img/joinserv.png", "img/joinserv_hover.png", "Join game", "Button join game", "marg-lr10", "square" , "big-font");
+
+
+        function step1() {
+            supress(app);
+            newImgTextButton(app, "creat", "img/creatserv.png", "img/creatserv_hover.png", "Creat new game", "Button creat new game", "marg-lr10", "square", "big-font");
+            newImgTextButton(app, "join", "img/joinserv.png", "img/joinserv_hover.png", "Join game", "Button join game", "marg-lr10", "square", "big-font");
+            fadeIn(app);
+
+        }
+        setTimeout(step1, 1050);
     }
 }
 
-deroulementApp ();
+deroulementApp();
