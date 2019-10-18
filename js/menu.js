@@ -204,6 +204,8 @@ function deroulementApp() {
     if (step == 3) { //step of the join game
 
         supress(app);
+        header.classList.add("resizeSmall");
+        header.classList.remove("resizeBig");
     }
 }
 

@@ -15,7 +15,7 @@ html {
 body {
     opacity: 0;
     margin: 0;
-    padding-top: 8%;
+    padding-top: 100px;
     min-height: 100%;
     overflow: hidden;
     color: white;
@@ -72,6 +72,7 @@ header {
     position: relative;
     z-index: 99;
     opacity: 0;
+    transform: scale(1);
 }
 
 main {
@@ -240,4 +241,18 @@ main {
 
 .marg-bot15 {
     margin-bottom: 15px;
+}
+
+.resizeSmall {
+    transform: scale(0.5);
+    transform-origin: top center;
+    -webkit-transition: transform 0.8s;
+    transition: transform 0.8s;
+}
+
+.resizeBig {
+    transform: scale(1);
+    transform-origin: top center;
+    -webkit-transition: transform 0.8s;
+    transition: transform 0.8s;
 }
