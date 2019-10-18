@@ -81,6 +81,41 @@ function newImg(emplacement, source, alternative, myClass) {
     emplacement.appendChild(newEl); //push img in dom
 } //function for new image
 
+function newTable(emplacement, numberofLine, numberofColumn, tableID) {
+    const newTabl = document.createElement("table");
+    newTabl.setAttribute("id", tableID);
+    const newTablBody = document.createElement("tbody");
+    for (let i = 0; i < numberofLine; i++) {
+        var newLine = document.createElement("tr");
+        for (let o = 0; o < numberofColumn; o++) {
+            var newColumn = document.createElement("td");
+            newColumn.setAttribute("id", "x" + i);
+            newLine.appendChild(newColumn);
+        }
+        newTablBody.appendChild(newLine);
+    }
+    newTabl.appendChild(newTablBody);
+    emplacement.appendChild(newTabl);
+    newTabl.setAttribute("border", "2");
+} //function for new table
+
+function newMapTable(emplacement, numberofLine, numberofColumn, tableID) {
+    const newTabl = document.createElement("table");
+    newTabl.setAttribute("id", tableID);
+    const newTablBody = document.createElement("tbody");
+    for (let i = 0; i < numberofLine; i++) {
+        var newLine = document.createElement("tr");
+        for (let o = 0; o < numberofColumn; o++) {
+            var newColumn = document.createElement("td");
+            newColumn.setAttribute("id", "x" + i + "y" + o);
+            newLine.appendChild(newColumn);
+        }
+        newTablBody.appendChild(newLine);
+    }
+    newTabl.appendChild(newTablBody);
+    emplacement.appendChild(newTabl);
+    newTabl.setAttribute("border", "2");
+} //function for new table
 
 function supress(selection) {
     while (selection.firstChild) {
@@ -206,6 +241,27 @@ function deroulementApp() {
         supress(app);
         header.classList.add("resizeSmall");
         header.classList.remove("resizeBig");
+
+        function tablGame() {
+
+            newTable(app, "5", "1", "gameList");
+            let line0 = document.getElementById("x0");
+            let game1 = document.createTextNode("game number 1");
+            line0.appendChild(game1);
+            let line1 = document.getElementById("x1");
+            let game2 = document.createTextNode("game number 2");
+            line1.appendChild(game2);
+            let line2 = document.getElementById("x2");
+            let game3 = document.createTextNode("game number 3");
+            line2.appendChild(game3);
+            let line3 = document.getElementById("x3");
+            let game4 = document.createTextNode("game number 4");
+            line3.appendChild(game4);
+            let line4 = document.getElementById("x4");
+            let game5 = document.createTextNode("game number 5");
+            line4.appendChild(game5);
+        }
+
     }
 }
 
