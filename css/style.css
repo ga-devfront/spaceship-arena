@@ -22,6 +22,79 @@ body {
     font-family: "pixelmix", Arial;
 }
 
+input {
+    font-family: "pixelmix", Arial;
+    font-size: 1em;
+    border: solid white 3px;
+    border-radius: 35px;
+    text-transform: uppercase;
+    background: none;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 52, 86, 0)), to(rgba(0, 52, 86, 1)));
+    background-image: linear-gradient(rgba(0, 52, 86, 0), rgba(0, 52, 86, 1));
+    -webkit-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+    color: white;
+}
+
+button {
+    font-family: "pixelmix", Arial;
+    font-size: 1em;
+    border: solid white 3px;
+    border-radius: 35px;
+    text-transform: uppercase;
+    background: none;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 52, 86, 0)), to(rgba(0, 52, 86, 1)));
+    background-image: linear-gradient(rgba(0, 52, 86, 0), rgba(0, 52, 86, 1));
+    -webkit-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+    color: white;
+}
+
+button.large {
+    padding: 10px 35px 10px 35px;
+}
+
+button.small {
+    padding: 10px 10px 10px 10px;
+}
+
+button.square {
+    height: 200px;
+    width: 200px;
+}
+
+button:hover {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 1)), to(rgba(255, 255, 255, 1)));
+    background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
+    color: #03151f;
+}
+
+button.nostyle {
+    border: none;
+    border-radius: none;
+    background-image: none;
+}
+
+footer {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 99;
+    opacity: 0;
+}
+
+header {
+    position: relative;
+    z-index: 99;
+    opacity: 0;
+}
+
+main {
+    position: relative;
+    z-index: 99;
+    opacity: 0;
+}
+
 .container {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -122,45 +195,6 @@ body {
     }
 }
 
-button {
-    font-family: "pixelmix", Arial;
-    font-size: 1em;
-    border: solid white 3px;
-    border-radius: 35px;
-    text-transform: uppercase;
-    background: none;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 52, 86, 0)), to(rgba(0, 52, 86, 1)));
-    background-image: linear-gradient(rgba(0, 52, 86, 0), rgba(0, 52, 86, 1));
-    -webkit-transition-duration: 0.8s;
-    transition-duration: 0.8s;
-    color: white;
-}
-
-button.large {
-    padding: 10px 35px 10px 35px;
-}
-
-button.small {
-    padding: 10px 10px 10px 10px;
-}
-
-button.square {
-    height: 200px;
-    width: 200px;
-}
-
-button:hover {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 1)), to(rgba(255, 255, 255, 1)));
-    background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
-    color: #03151f;
-}
-
-button.nostyle {
-    border: none;
-    border-radius: none;
-    background-image: none;
-}
-
 .big-font {
     font-size: 1.8em;
 }
@@ -171,32 +205,14 @@ button.nostyle {
 
 .show {
     opacity: 1;
+    -webkit-transition: opacity 1s;
     transition: opacity 1s;
-  }
-  
-  .hide {
-    opacity: 0;
-    transition: opacity 1s;
-  }
-
-footer {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    z-index: 99;
-    opacity: 0;
 }
 
-header {
-    position: relative;
-    z-index: 99;
+.hide {
     opacity: 0;
-}
-
-main {
-    position: relative;
-    z-index: 99;
-    opacity: 0;
+    -webkit-transition: opacity 1s;
+    transition: opacity 1s;
 }
 
 .marg-lr10 {
@@ -206,10 +222,4 @@ main {
 
 .marg-bot15 {
     margin-bottom: 15px;
-}
-
-.opacitytest {
-    opacity: 0;
-    -webkit-transition-duration: 0.5s;
-    transition-duration: 0.5s;
 }

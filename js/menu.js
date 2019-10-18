@@ -1,87 +1,84 @@
-let backgroundSoundSource = "audio/pulsation.mp3";
+let backgroundSoundSource = "audio/pulsation.mp";
 let backgroundSound = new Audio(); //select audio background
 let buttonSound = new Audio("audio/btn.mp3"); //select audio click button
 
 let step = 0; //initialise les step à 0
 
-let header = document.getElementById("header");
-let app = document.getElementById("app");
-let footer = document.getElementById("footer");
+let header = document.getElementById("header"); //defin header
+let app = document.getElementById("app"); //defin application
+let footer = document.getElementById("footer"); //defin footer
 
 function newButton(emplacement, myID, myClass, myClass2) {
-    const newEl = document.createElement("button");
-    newEl.setAttribute("id", myID);
-    newEl.classList.add(myClass, myClass2);
-    emplacement.appendChild(newEl);
-    newEl.addEventListener("mouseover", function () {
-        buttonSound.play();
-    })
-} //function for new element
+    const newEl = document.createElement("button"); //creat button
+    newEl.setAttribute("id", myID); //set the id
+    newEl.classList.add(myClass, myClass2); //add class 1 & 2
+    emplacement.appendChild(newEl); //push button in dom
+} //function for new simple button
 
 
 function newTextButton(emplacement, myID, myText, myClass, myClass2) {
-    const newEl = document.createElement("button");
-    newEl.setAttribute("id", myID);
-    newEl.classList.add(myClass, myClass2);
-    emplacement.appendChild(newEl);
-    const newTxt = document.createTextNode(myText);
-    newEl.appendChild(newTxt);
+    const newEl = document.createElement("button"); //creat button
+    newEl.setAttribute("id", myID); //set the id
+    newEl.classList.add(myClass, myClass2); //add class 1 & 2
+    emplacement.appendChild(newEl); //push button in dom
+    const newTxt = document.createTextNode(myText); //creat text
+    newEl.appendChild(newTxt); //push text in button
     newEl.addEventListener("mouseover", function () {
         buttonSound.play();
-    })
-} //function for new element
+    }) //add sound on hover
+} //function for new text button
 
 function newImgButton(emplacement, myID, myImg, myImgHover, Alternative, myClass, myClass2) {
-    const newEl = document.createElement("button");
-    newEl.setAttribute("id", myID);
-    newEl.classList.add(myClass, myClass2);
-    emplacement.appendChild(newEl);
-    const newImg = document.createElement("img");
-    newImg.setAttribute("src", myImg);
-    newImg.setAttribute("alt", Alternative);
-    newEl.appendChild(newImg);
+    const newEl = document.createElement("button"); //creat button
+    newEl.setAttribute("id", myID); //set the id
+    newEl.classList.add(myClass, myClass2); //add class 1 & 2
+    emplacement.appendChild(newEl); //push button in dom
+    const newImg = document.createElement("img"); //creat img
+    newImg.setAttribute("src", myImg); //set src attribute
+    newImg.setAttribute("alt", Alternative); //set src alternative
+    newEl.appendChild(newImg); //push img in button
 
     newEl.addEventListener("mouseover", function () {
         buttonSound.play();
         newImg.src = myImgHover;
-    })
+    }) //change img in hover and play sound
 
     newEl.addEventListener("mouseout", function () {
         newImg.src = myImg;
-    })
+    }) //change img in out
 
-} //function for new element
+} //function for new img button
 
 function newImgTextButton(emplacement, myID, myImg, myImgHover, myText, Alternative, myClass, myClass2, myClass3) {
-    const newEl = document.createElement("button");
-    newEl.setAttribute("id", myID);
-    newEl.classList.add(myClass, myClass2, myClass3);
-    emplacement.appendChild(newEl);
-    const newImg = document.createElement("img");
-    newImg.setAttribute("src", myImg);
-    newImg.setAttribute("alt", Alternative);
-    newImg.classList.add("marg-bot15");
-    newEl.appendChild(newImg);
-    const newTxt = document.createTextNode(myText);
-    newEl.appendChild(newTxt);
+    const newEl = document.createElement("button"); //creat button
+    newEl.setAttribute("id", myID); //set the id
+    newEl.classList.add(myClass, myClass2, myClass3); //add class 1,2 & 3
+    emplacement.appendChild(newEl); //push button in dom
+    const newImg = document.createElement("img"); //creat img
+    newImg.setAttribute("src", myImg); //set src attribute
+    newImg.setAttribute("alt", Alternative); //set alt attritube
+    newImg.classList.add("marg-bot15"); //add marg class for separe img and text
+    newEl.appendChild(newImg); //push img in button
+    const newTxt = document.createTextNode(myText); //creat text
+    newEl.appendChild(newTxt); //push text in button
 
     newEl.addEventListener("mouseover", function () {
         buttonSound.play();
         newImg.src = myImgHover;
-    })
+    }) //change img in hover and play sound
 
     newEl.addEventListener("mouseout", function () {
         newImg.src = myImg;
-    })
+    }) //change img in out
 
-} //function for new element
+} //function for new img text button
 
 function newImg(emplacement, source, alternative, myClass) {
-    const newEl = document.createElement("img");
-    newEl.setAttribute("src", source);
-    newEl.setAttribute("alt", alternative);
-    newEl.classList.add(myClass);
-    emplacement.appendChild(newEl);
+    const newEl = document.createElement("img"); //creat img
+    newEl.setAttribute("src", source); //set src attribute
+    newEl.setAttribute("alt", alternative); //set alt attritube
+    newEl.classList.add(myClass); //add class
+    emplacement.appendChild(newEl); //push img in dom
 } //function for new image
 
 
@@ -89,20 +86,20 @@ function supress(selection) {
     while (selection.firstChild) {
         selection.removeChild(selection.firstChild);
     }
-} //supression du contenue
+} //function for supress all child
 
-function fadeIn(select){
+function fadeIn(select) {
     select.classList.add('show');
-    select.classList.remove('hide');  
-  }
+    select.classList.remove('hide');
+} //function for fade in
 
-function fadeOut(select){
+function fadeOut(select) {
     select.classList.add('hide');
     select.classList.remove('show');
-  }
+} //function for fade out 
 
 function deroulementApp() {
-    if (step == 0) {
+    if (step == 0) { //step of start menu
         supress(header);
         supress(app);
         supress(footer);
@@ -148,22 +145,55 @@ function deroulementApp() {
         start.addEventListener("click", function () {
             step++;
             deroulementApp();
-            fadeOut(app);
+            //fadeOut(app);
         });
     }
 
-    if (step == 1) {
+    if (step == 1) { //step of choice creat or join game
 
+        supress(app);
+        newImgTextButton(app, "creat", "img/creatserv.png", "img/creatserv_hover.png", "Creat new game", "Button creat new game", "marg-lr10", "square", "big-font");
+        newImgTextButton(app, "join", "img/joinserv.png", "img/joinserv_hover.png", "Join game", "Button join game", "marg-lr10", "square", "big-font");
+        //fadeIn(app);
 
-        function step1() {
-            supress(app);
-            newImgTextButton(app, "creat", "img/creatserv.png", "img/creatserv_hover.png", "Creat new game", "Button creat new game", "marg-lr10", "square", "big-font");
-            newImgTextButton(app, "join", "img/joinserv.png", "img/joinserv_hover.png", "Join game", "Button join game", "marg-lr10", "square", "big-font");
-            fadeIn(app);
+        creat.addEventListener("click", function () {
+            step++;
+            deroulementApp();
+            //fadeOut(app);
+        });
 
-        }
-        setTimeout(step1, 1050);
+        join.addEventListener("click", function () {
+            step += 2;
+            deroulementApp();
+            //fadeOut(app);
+        });
+    }
+
+    if (step == 2) { //step of the creat game
+
+        supress(app);
+        const newGame = document.createElement("form");
+        newGame.action = "/action.php"
+        const newGameName = document.createElement("input");
+        newGameName.type = "text";
+        newGameName.id = "inputnewGameName";
+        newGameName.name = "Game Name";
+        newGameName.required = true;
+        newGameName.minlength = "4";
+        newGameName.maxlength = "10";
+        const newGameButton = document.createElement("input");
+        newGameButton.type = "submit";
+        newGameButton.value = "Submit";
+        app.appendChild(newGame);
+        newGame.appendChild(newGameName);
+        newGame.appendChild(newGameButton);
+
+    }
+
+    if (step == 3) { //step of the join game
+
+        supress(app);
     }
 }
 
-deroulementApp();
+deroulementApp(); //start the app on load
