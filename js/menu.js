@@ -242,26 +242,15 @@ function deroulementApp() {
         header.classList.add("resizeSmall");
         header.classList.remove("resizeBig");
 
-        function tablGame() {
-
-            newTable(app, "5", "1", "gameList");
-            let line0 = document.getElementById("x0");
-            let game1 = document.createTextNode("game number 1");
-            line0.appendChild(game1);
-            let line1 = document.getElementById("x1");
-            let game2 = document.createTextNode("game number 2");
-            line1.appendChild(game2);
-            let line2 = document.getElementById("x2");
-            let game3 = document.createTextNode("game number 3");
-            line2.appendChild(game3);
-            let line3 = document.getElementById("x3");
-            let game4 = document.createTextNode("game number 4");
-            line3.appendChild(game4);
-            let line4 = document.getElementById("x4");
-            let game5 = document.createTextNode("game number 5");
-            line4.appendChild(game5);
+        function tablGame(numberOfGames) {
+            newTable(app, numberOfGames, "1", "gameList");
+            for (let i = 0; i < numberOfGames; i++) {
+                let line = document.getElementById("x" + i);
+                let game = document.createTextNode("game number " + i);
+                line.appendChild(game);
+            }
         }
-
+        tablGame(8);
     }
 }
 
