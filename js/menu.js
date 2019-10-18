@@ -180,12 +180,23 @@ function deroulementApp() {
         newGameName.name = "Game Name";
         newGameName.required = true;
         newGameName.minlength = "4";
-        newGameName.maxlength = "10";
+        newGameName.maxlength = "20";
+        newGameName.value = "min 4 - max 20 carac";
+        newGameName.classList.add("large", "inputText");
+        const newLabelDiv = document.createElement("div");
+        newLabelDiv.classList.add("container", "centerwrap", "marg-bot15");
+        const newGameLabel = document.createElement("label");
+        newGameLabel.for = "inputnewGameName";
+        const newTextLabel = document.createTextNode("Enter your game name :");
         const newGameButton = document.createElement("input");
         newGameButton.type = "submit";
-        newGameButton.value = "Submit";
+        newGameButton.value = ">>";
+        newGameButton.classList.add("small", "submitButton");
         app.appendChild(newGame);
+        newGame.appendChild(newLabelDiv);
+        newLabelDiv.appendChild(newGameLabel);
         newGame.appendChild(newGameName);
+        newGameLabel.appendChild(newTextLabel);
         newGame.appendChild(newGameButton);
 
     }
