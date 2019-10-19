@@ -15,7 +15,6 @@ function newButton(emplacement, myID, myClass, myClass2) {
     emplacement.appendChild(newEl); //push button in dom
 } //function for new simple button
 
-
 function newTextButton(emplacement, myID, myText, myClass, myClass2) {
     const newEl = document.createElement("button"); //creat button
     newEl.setAttribute("id", myID); //set the id
@@ -84,19 +83,24 @@ function newImg(emplacement, source, alternative, myClass) {
 function newTable(emplacement, numberofLine, numberofColumn, tableID) {
     const newTabl = document.createElement("table");
     newTabl.setAttribute("id", tableID);
+
     const newTablBody = document.createElement("tbody");
     for (let i = 0; i < numberofLine; i++) {
         var newLine = document.createElement("tr");
         for (let o = 0; o < numberofColumn; o++) {
             var newColumn = document.createElement("td");
             newColumn.setAttribute("id", "x" + i);
+            newColumn.classList.add("large", "hoverTableCell");
+            newColumn.addEventListener("mouseover", function () {
+                buttonSound.play();
+            }) //add sound on hover
             newLine.appendChild(newColumn);
         }
         newTablBody.appendChild(newLine);
+
     }
     newTabl.appendChild(newTablBody);
     emplacement.appendChild(newTabl);
-    newTabl.setAttribute("border", "2");
 } //function for new table
 
 function newMapTable(emplacement, numberofLine, numberofColumn, tableID) {
@@ -116,6 +120,13 @@ function newMapTable(emplacement, numberofLine, numberofColumn, tableID) {
     emplacement.appendChild(newTabl);
     newTabl.setAttribute("border", "2");
 } //function for new table
+
+function newDiv(emplacement, myID, myClass, myClass2, myClass3) {
+    const newDiv = document.createElement("div");
+    newDiv.classList.add(myClass, myClass2, myClass3);
+    newDiv.setAttribute("id", myID);
+    emplacement.appendChild(newDiv);
+}//function for new div
 
 function supress(selection) {
     while (selection.firstChild) {
@@ -218,21 +229,28 @@ function deroulementApp() {
         newGameName.maxlength = "20";
         newGameName.value = "min 4 - max 20 carac";
         newGameName.classList.add("large", "inputText");
-        const newLabelDiv = document.createElement("div");
-        newLabelDiv.classList.add("container", "centerwrap", "marg-bot15");
+        newDiv(app, "containerCreatGame", "container", "centerwrap", "flexColumn");
+        newDiv(containerCreatGame, "titleCreat", "container", "big-font", "large");
+        newDiv(containerCreatGame, "inputCreat", "container", "centerwrap", "overflowAuto");
+
         const newGameLabel = document.createElement("label");
         newGameLabel.for = "inputnewGameName";
-        const newTextLabel = document.createTextNode("Enter your game name :");
+        const newTextLabel = document.createTextNode("Enter your game name");
         const newGameButton = document.createElement("input");
         newGameButton.type = "submit";
         newGameButton.value = ">>";
         newGameButton.classList.add("small", "submitButton");
-        app.appendChild(newGame);
-        newGame.appendChild(newLabelDiv);
-        newLabelDiv.appendChild(newGameLabel);
+        newGameButton.addEventListener("mouseover", function () {
+            buttonSound.play();
+        }) //add sound on hover
+
+        inputCreat.appendChild(newGame); //place le formulaire dans sa div
+
+        inputCreat.appendChild(newGameLabel);
         newGame.appendChild(newGameName);
-        newGameLabel.appendChild(newTextLabel);
         newGame.appendChild(newGameButton);
+
+        titleCreat.appendChild(newTextLabel);
 
     }
 
@@ -241,16 +259,27 @@ function deroulementApp() {
         supress(app);
         header.classList.add("resizeSmall");
         header.classList.remove("resizeBig");
+        app.classList.add("margtop15");
+        app.classList.remove("margtop100");
+
+        newDiv(app, "tableOfGames", "container", "centerwrap", "listTable");
+        newDiv(tableOfGames, "titleChoice", "container", "big-font", "large");
+        newDiv(tableOfGames, "listChoice", "container", "centerwrap", "overflowAuto");
+        let chooseTitle = document.createTextNode("Choose your game");
+        titleChoice.appendChild(chooseTitle);
+
+
 
         function tablGame(numberOfGames) {
-            newTable(app, numberOfGames, "1", "gameList");
+            newTable(listChoice, numberOfGames, 1, "gameList");
             for (let i = 0; i < numberOfGames; i++) {
                 let line = document.getElementById("x" + i);
                 let game = document.createTextNode("game number " + i);
                 line.appendChild(game);
+
             }
         }
-        tablGame(8);
+        tablGame(10);
     }
 }
 
