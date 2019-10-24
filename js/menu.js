@@ -153,7 +153,7 @@ function deroulementApp() {
     if (step == 5) { //THE GAME
         header.classList.add("resizeSmall");
         header.classList.remove("resizeBig");
-        app.classList.add("margtopneg200");
+        app.classList.add("margtopneg250");
         app.classList.remove("margtop100");
         supress(app);
         newDiv(app, "gameMap", "container", "centerwrap", "none");

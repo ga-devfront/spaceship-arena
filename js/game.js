@@ -1,5 +1,21 @@
-var mapType = ["img/map1-5.png"];
+var mapType = ["img/map1-1.png", "img/map2-1.png", "img/map3-1.png", "img/map4-1.png"];
 var obstacle = ["img/meteor.png", "img/meteor2.png"]
+class Ship {
+    constructor(shipname, length, large, defense, offensif, speed, sprite){
+        this.shipname = shipname;
+        this.length = length;
+        this.large = large;
+        this.defense = defense;
+        this.offensif = offensif;
+        this.speed = speed;
+        this.sprite = sprite;
+    }
+}
+let blackBird = new Ship("Black Bird", 2, 1, 2, 3, 3, "img/ship1.png");
+let federalCruser = new Ship("Federal Cruser", 3, 1, 5, 2, 1, "img/ship2.png");
+let speedFire = new Ship("Speed Fire", 2, 2, 1, 2, 5, "img/ship3.png");
+let noName = new Ship("No Name", 1, 1, 2, 5, 1, "img/ship4.png");
+let shipList = [blackBird, federalCruser, speedFire, noName]
 
 function generationMap(emplacement, tableID) {
 
@@ -12,9 +28,9 @@ function generationMap(emplacement, tableID) {
         newTabl.classList.add("mapGame");
         const newTablBody = document.createElement("tbody");
         newTablBody.classList.add("row")
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 15; i++) {
             var newLine = document.createElement("tr");
-            for (let o = 0; o < 20; o++) {
+            for (let o = 0; o < 15; o++) {
                  var newColumn = document.createElement("td");
                 newLine.appendChild(newColumn);
                 const newDiv = document.createElement("div");
@@ -31,7 +47,7 @@ function generationMap(emplacement, tableID) {
     } //function for new table
 
     function mapObstacle() {
-        for (let x = 0; x < 20; x++) {
+        for (let x = 0; x < 15; x++) {
             let randomCas = mapCoord[Math.floor(Math.random() * mapCoord.length)];
             let regexX = /(\d{1,2}(?=y))/g;
             let foundX = randomCas.match(regexX);
@@ -45,7 +61,7 @@ function generationMap(emplacement, tableID) {
                 var yneg1 = foundY - 1;
                 var yneg2 = foundY - 2;
             }
-            if (foundY == 19 || foundY == 18) {
+            if (foundY == 14 || foundY == 13) {
                 var ypos1 = foundY;
                 var ypos2 = foundY;
             } else {
@@ -60,7 +76,7 @@ function generationMap(emplacement, tableID) {
                 var xneg1 = foundX - 1;
                 var xneg2 = foundX - 2;
             }
-            if (foundX == 19 || foundX == 18) {
+            if (foundX == 14 || foundX == 13) {
                 var xpos1 = foundX;
                 var xpos2 = foundX;
             } else {
@@ -119,7 +135,8 @@ function generationMap(emplacement, tableID) {
             if (idRandom.classList.contains("noSell")) {
                 y--
             } else {
-                newDiv(idRandom, "ship" + y, "testPlayer", "none", "none");
+                let shipRandom = shipList[Math.floor(Math.random() * shipList.length)].sprite;
+                newImg(idRandom, shipRandom, "none", "shipImg");
             }
         }
 

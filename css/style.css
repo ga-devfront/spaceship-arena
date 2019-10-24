@@ -232,8 +232,8 @@ main {
     transition: margin-top 10s;
 }
 
-.margtopneg200 {
-    margin-top: -200px;
+.margtopneg250 {
+    margin-top: -250px;
     -webkit-transition: margin-top 10s;
     transition: margin-top 10s;
 }
