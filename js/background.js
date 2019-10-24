@@ -1,4 +1,5 @@
-function newImg(myID, source, myLeft, myTop, myIndex) {
+  
+function newBackgroundImg(myID, source, myLeft, myTop, myIndex) {
     const newEl = document.createElement("img");
     newEl.setAttribute("id", myID);
     newEl.setAttribute("src", source);
@@ -23,13 +24,13 @@ function fadeIn(select){
   }
 
 
-newImg("lune", "img/lune.png", "70", "50", "1");
-newImg("mars", "img/mars.png", "80", "10", "2");
-newImg("sat", "img/sat.png", "5", "5", "3");
-newImg("star1", "img/star1.png", "90", "30", "4");
-newImg("star2", "img/star2.png", "25", "35", "5");
-newImg("star3", "img/star3.png", "35", "80", "6");
-newImg("star4", "img/star4.png", "3", "25", "7");
+newBackgroundImg("lune", "img/lune.png", "70", "50", "1");
+newBackgroundImg("mars", "img/mars.png", "80", "10", "2");
+newBackgroundImg("sat", "img/sat.png", "5", "5", "3");
+newBackgroundImg("star1", "img/star1.png", "90", "30", "4");
+newBackgroundImg("star2", "img/star2.png", "25", "35", "5");
+newBackgroundImg("star3", "img/star3.png", "35", "80", "6");
+newBackgroundImg("star4", "img/star4.png", "3", "25", "7");
 
 document.body.addEventListener("mousemove", function () {
     fadeIn(myBody);

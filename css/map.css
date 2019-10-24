@@ -1,0 +1,58 @@
+.mapGame {
+    border-spacing: 0px;
+}
+
+.row {
+    transform: rotateX(60deg) rotateY(0deg) rotateZ(45deg);
+    height: 80%;
+}
+
+.baseMap {
+    transform: rotateZ(-45deg) rotateX(0deg) scaleX(0.5);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+
+}
+
+.noSell {
+    transform: rotateZ(-45deg) rotateX(0deg) scaleX(0.5);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+}
+
+.testPlayer {
+    background-image: url(../img/shiptest);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+}
+
+.gameGrid {
+    position: relative;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 10px;
+    text-align: center;
+    vertical-align: top;
+    margin: 0;
+}
+
+.cellImg {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 120px;
+}

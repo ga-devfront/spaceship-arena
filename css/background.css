@@ -1,0 +1,83 @@
+#lune {
+    left: 75%;
+    top: 60%;
+    -webkit-transition-duration: 0.5s linear;
+    transition-duration: 0.5s linear;
+}
+
+#lune:hover {
+    left : 75%;
+    top: 60%;
+}
+
+#mars {
+    left : 80%;
+    top: 10%;
+    -webkit-transition-duration: 0.5s linear;
+    transition-duration: 0.5s linear;
+}
+
+#mars:hover {
+    left : 80%;
+    top: 10%;
+    
+}
+
+#sat {
+    left : 5%;
+    top: 5%;
+    -webkit-transition-duration: 0.5s linear;
+    transition-duration: 0.5s linear;
+}
+
+#sat:hover {
+    left : 5%;
+    top: 5%;
+}
+
+#star1 {
+    left : 90%;
+    top: 30%;
+    -webkit-transition-duration: 0.5s linear;
+    transition-duration: 0.5s linear;
+}
+
+#star1:hover {
+    left : 90%;
+    top: 30%;
+}
+
+#star2 {
+    left : 25%;
+    top: 35%;
+    -webkit-transition-duration: 0.5s linear;
+    transition-duration: 0.5s linear;
+}
+
+#star2:hover {
+    left : 25%;
+    top: 35%;
+}
+#star3 {
+    left : 35%;
+    top: 80%;
+    -webkit-transition-duration: 0.5s linear;
+    transition-duration: 0.5s linear;
+}
+
+#star3:hover {
+    left : 35%;
+    top: 80%;
+    
+}
+#star4 {
+    left : 3%;
+    top: 25%;
+    -webkit-transition-duration: 0.5s linear;
+    transition-duration: 0.5s linear;
+}
+
+#star4:hover {
+    left : 3%;
+    top: 25%;
+}
