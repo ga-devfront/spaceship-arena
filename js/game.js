@@ -94,7 +94,7 @@ function generationMap(emplacement, tableID) {
                     idRandom.classList.add("noSell", "baseMap");
                     let obstacleRandom = obstacle[Math.floor(Math.random() * obstacle.length)];
                     newImgMap(idRandom, obstacleRandom, "none", "obstacleImg", "none");
-                    newImgMap(idRandom, mapImg, "none", "cellImg", "opacity02");
+                    newImgMap(idRandom, mapImg, "none", "cellImg", "opacity02"); //a enlever 
                 } else {
                     x--;
                 }
