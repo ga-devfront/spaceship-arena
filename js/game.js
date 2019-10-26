@@ -15,7 +15,7 @@ let blackBird = new Ship("Black Bird", 2, 1, 2, 3, 3, "img/ship1.png");
 let federalCruser = new Ship("Federal Cruser", 3, 1, 5, 2, 1, "img/ship2.png");
 let speedFire = new Ship("Speed Fire", 2, 2, 1, 2, 5, "img/ship3.png");
 let noName = new Ship("No Name", 1, 1, 2, 5, 1, "img/ship4.png");
-let shipList = [blackBird, federalCruser, speedFire, noName]
+let shipList = [blackBird, federalCruser, speedFire, noName];
 
 function generationMap(emplacement, tableID) {
 
@@ -47,8 +47,8 @@ function generationMap(emplacement, tableID) {
     } //function for new table
 
     function mapObstacle() {
-        for (let x = 0; x < 6; x++) {
-            let randomCas = mapCoord[Math.floor(Math.random() * mapCoord.length)]; //prend une case random
+        for (let x = 0; x < 8; x++) {
+            var randomCas = mapCoord[Math.floor(Math.random() * mapCoord.length)]; //prend une case random
             let regexX = /(\d{1,2}(?=y))/g; //regex pour X
             let foundX = randomCas.match(regexX); //récupère le X
             let regexY = /(\d{1,2})$/g; //regex pour le Y
@@ -75,33 +75,34 @@ function generationMap(emplacement, tableID) {
                 return currentValue < 14;
             }
 
-            console.log(plageX);
-            console.log(plageX.every(negativ)); //false
-            console.log(plageX.every(overpositiv)); //true
-
-            if (plageX.every(negativ) && plageX.every(overpositiv) && plageY.every(negativ) && plageY.every(overpositiv)) { //breakpoint
+            if (plageX.every(negativ) && plageX.every(overpositiv) && plageY.every(negativ) && plageY.every(overpositiv)) {
                 for (let u = 0; u < 5; u++) {
                     for (let s = 0; s < 5; s++) {
                         var plageTotal = "x" + plageX[s] + "y" + plageY[u];
                         allPlage.push(plageTotal);
                     }
                 } //ajoute toutes les possibilité de plages à mon tableau
+                var testObstacl = 0;
                 for (let w = 0; w < 25; w++) {
                     var plageId = document.getElementById(allPlage[w]);
-                    console.log(plageId);
-                        if (plageId.classList.contains("noSell")) {
-                            x--;
-                        } else {
-                            let idRandom = document.getElementById(randomCas);
-                            idRandom.classList.add("noSell", "baseMap");
-                            let obstacleRandom = obstacle[Math.floor(Math.random() * obstacle.length)];
-                            newImgMap(idRandom, obstacleRandom, "none", "obstacleImg", "none");
-                            newImgMap(idRandom, mapImg, "none", "cellImg", "opacity02");
-                        }
+                    if (plageId.classList.contains("noSell")) {} else {
+                        testObstacl = testObstacl + 1;
                     }
-                } else { x--; }
+                }
+                if (testObstacl == 25) {
+                    let idRandom = document.getElementById(randomCas);
+                    idRandom.classList.add("noSell", "baseMap");
+                    let obstacleRandom = obstacle[Math.floor(Math.random() * obstacle.length)];
+                    newImgMap(idRandom, obstacleRandom, "none", "obstacleImg", "none");
+                    newImgMap(idRandom, mapImg, "none", "cellImg", "opacity02");
+                } else {
+                    x--;
+                }
+            } else {
+                x--;
             }
         }
+    }
 
     function RandomMap() {
         for (let y = 0; y < mapCoord.length; y++) {
@@ -116,7 +117,7 @@ function generationMap(emplacement, tableID) {
                 newImgMap(idMap, mapImg, "none", "cellImg", "opacity02");
             }
         }
-    }
+    } //a implanter dans la création de cases et non en random
 
     function addPlayer() {
         for (let y = 0; y < 2; y++) {
