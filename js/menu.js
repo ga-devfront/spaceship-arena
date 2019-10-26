@@ -156,8 +156,7 @@ function deroulementApp() {
         app.classList.add("margtopneg250");
         app.classList.remove("margtop100");
         supress(app);
-        newDiv(app, "gameMap", "container", "centerwrap", "none");
-        generationMap(gameMap, "map");
+        generationMap(app, "map");
     }
 }
 

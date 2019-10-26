@@ -70,6 +70,14 @@ function newImg(emplacement, source, alternative, myClass) {
     emplacement.appendChild(newEl); //push img in dom
 } //function for new image
 
+function newImgMap(emplacement, source, alternative, myClass, myClass2) {
+    const newEl = document.createElement("img"); //creat img
+    newEl.setAttribute("src", source); //set src attribute
+    newEl.setAttribute("alt", alternative); //set alt attritube
+    newEl.classList.add(myClass, myClass2); //add class
+    emplacement.appendChild(newEl); //push img in dom
+} //function for new image
+
 function newTable(emplacement, numberofLine, numberofColumn, tableID) {
     const newTabl = document.createElement("table");
     newTabl.setAttribute("id", tableID);

@@ -9,7 +9,7 @@
 html {
     cursor: url("../img/pointeur.png"), default;
     height: 100%;
-    background-image: radial-gradient(circle at 78% 95%, rgba(5, 23, 33, 1) 0%, rgba(0, 0, 6, 1) 100%);
+    background-image:  radial-gradient(ellipse at 50% 90%, rgba(1,33,50,1) 0%, rgba(116, 179, 180,1) 0%, rgba(1,130,173,1) 40%, rgba(1,33,50,1) 84%, rgba(1,33,50,1) 100%);
 }
 
 body {
@@ -27,8 +27,8 @@ input {
     font-size: 1em;
     text-transform: uppercase;
     background: none;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 52, 86, 0)), to(rgba(0, 52, 86, 1)));
-    background-image: linear-gradient(rgba(0, 52, 86, 0), rgba(0, 52, 86, 1));
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(116, 179, 180, 0)), to(rgba(116, 179, 180, 1)));
+    background-image: linear-gradient(rgba(116, 179, 180, 0), rgb(116, 179, 180));
     -webkit-transition-duration: 0.8s;
     transition-duration: 0.8s;
     color: white;
@@ -41,8 +41,8 @@ button {
     border-radius: 35px;
     text-transform: uppercase;
     background: none;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 52, 86, 0)), to(rgba(0, 52, 86, 1)));
-    background-image: linear-gradient(rgba(0, 52, 86, 0), rgba(0, 52, 86, 1));
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(116, 179, 180, 0)), to(rgba(116, 179, 180, 1)));
+    background-image: linear-gradient(rgba(116, 179, 180, 0), rgba(116, 179, 180, 1));
     -webkit-transition-duration: 0.8s;
     transition-duration: 0.8s;
     color: white;
@@ -51,7 +51,7 @@ button {
 button:hover {
     background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 1)), to(rgba(255, 255, 255, 1)));
     background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
-    color: #03151f;
+    color: #015b7b;
 }
 
 button.nostyle {
@@ -99,7 +99,7 @@ main {
 .submitButton:hover {
     background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 1)), to(rgba(255, 255, 255, 1)));
     background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
-    color: #03151f;
+    color: #015b7b;
 }
 
 .large {
@@ -267,8 +267,8 @@ main {
     border: solid white 3px;
     border-radius: 35px;
     text-transform: uppercase;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 52, 86, 0)), to(rgba(0, 52, 86, 1)));
-    background-image: linear-gradient(rgba(0, 52, 86, 0), rgba(0, 52, 86, 1));
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(116, 179, 180, 0)), to(rgba(116, 179, 180, 1)));
+    background-image: linear-gradient(rgba(116, 179, 180, 0), rgba(116, 179, 180, 1));
 }
 
 .flexColumn {
@@ -337,5 +337,5 @@ main {
 .hoverTableCell:hover {
     background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 1)), to(rgba(255, 255, 255, 1)));
     background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
-    color: #03151f;
+    color: #015b7b;
 }

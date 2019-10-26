@@ -1,5 +1,5 @@
-var mapType = ["img/map1-1.png", "img/map2-1.png", "img/map3-1.png", "img/map4-1.png"];
-var obstacle = ["img/meteor.png", "img/meteor2.png"]
+var mapImg = "img/mapv2.png";
+var obstacle = ["img/meteor.png", "img/meteor2.png", "img/greenplanet.png", "img/greenplanet2.png", "img/blueplanet.png", "img/blueplanet2.png", "img/solar-spatial.png", "img/solar-spatial2.png"];
 class Ship {
     constructor(shipname, length, large, defense, offensif, speed, sprite){
         this.shipname = shipname;
@@ -47,7 +47,7 @@ function generationMap(emplacement, tableID) {
     } //function for new table
 
     function mapObstacle() {
-        for (let x = 0; x < 15; x++) {
+        for (let x = 0; x < 10; x++) {
             let randomCas = mapCoord[Math.floor(Math.random() * mapCoord.length)];
             let regexX = /(\d{1,2}(?=y))/g;
             let foundX = randomCas.match(regexX);
@@ -105,9 +105,10 @@ function generationMap(emplacement, tableID) {
             if (idRandom.classList.contains("noSell") || idRandomXneg1.classList.contains("noSell") || idRandomXneg2.classList.contains("noSell") || idRandomXpos1.classList.contains("noSell") || idRandomXpos2.classList.contains("noSell") || idRandomYneg1.classList.contains("noSell") || idRandomYneg2.classList.contains("noSell") || idRandomYpos1.classList.contains("noSell") || idRandomYpos2.classList.contains("noSell") ) {
                 x--;
             } else {
-                idRandom.classList.add("noSell");
+                idRandom.classList.add("noSell", "baseMap");
                 let obstacleRandom = obstacle[Math.floor(Math.random() * obstacle.length)];
-                newImg(idRandom, obstacleRandom, "none", "cellImg");
+                newImgMap(idRandom, obstacleRandom, "none", "obstacleImg", "none");
+                newImgMap(idRandom, mapImg, "none", "cellImg", "opacity02");
             }
         }
     }
@@ -121,9 +122,8 @@ function generationMap(emplacement, tableID) {
             if (idMap.classList.contains("noSell")) {
 
             } else {
-                let mapRandom = mapType[Math.floor(Math.random() * mapType.length)];
-                idMap.classList.add("baseMap", mapRandom);
-                newImg(idMap, mapRandom, "none", "cellImg");
+                idMap.classList.add("baseMap");
+                newImgMap(idMap, mapImg, "none", "cellImg", "opacity02");
             }
         }
     }
@@ -136,7 +136,7 @@ function generationMap(emplacement, tableID) {
                 y--
             } else {
                 let shipRandom = shipList[Math.floor(Math.random() * shipList.length)].sprite;
-                newImg(idRandom, shipRandom, "none", "shipImg");
+                newImgMap(idRandom, shipRandom, "none", "shipImg", "none");
             }
         }
 

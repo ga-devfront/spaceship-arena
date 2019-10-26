@@ -5,7 +5,6 @@
 
 .row {
     transform: rotateX(60deg) rotateY(0deg) rotateZ(45deg);
-    box-shadow: 100px 100px 50px rgba(0, 0, 0, 0.9);
 }
 
 .baseMap {
@@ -17,10 +16,10 @@
 }
 
 .noSell {
+    padding: 0;
     transform: rotateZ(-45deg) rotateX(0deg) scaleX(0.5);
     width: 60px;
     height: 60px;
-    padding: 0;
 }
 
 .testPlayer {
@@ -45,7 +44,7 @@
 .cellImg {
     position: absolute;
     z-index: 98;
-    top: -10px;
+    top: -15px;
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
@@ -59,4 +58,18 @@
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
+}
+
+.obstacleImg {
+    z-index: 99;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 160px;
+}
+
+.opacity02{
+    opacity: 0.25;
 }
