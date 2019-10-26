@@ -1,7 +1,7 @@
 var mapImg = "img/mapv2.png";
-var obstacle = ["img/meteor.png", "img/meteor2.png", "img/greenplanet.png", "img/greenplanet2.png", "img/blueplanet.png", "img/blueplanet2.png", "img/solar-spatial.png", "img/solar-spatial2.png"];
+var obstacle = ["img/meteor.png", "img/meteor2.png", "img/supernova.png", "img/supernova2.png", "img/greenplanet.png", "img/greenplanet2.png", "img/blueplanet.png", "img/blueplanet2.png", "img/solar-spatial.png", "img/solar-spatial2.png"];
 class Ship {
-    constructor(shipname, length, large, defense, offensif, speed, sprite){
+    constructor(shipname, length, large, defense, offensif, speed, sprite) {
         this.shipname = shipname;
         this.length = length;
         this.large = large;
@@ -31,7 +31,7 @@ function generationMap(emplacement, tableID) {
         for (let i = 0; i < 15; i++) {
             var newLine = document.createElement("tr");
             for (let o = 0; o < 15; o++) {
-                 var newColumn = document.createElement("td");
+                var newColumn = document.createElement("td");
                 newLine.appendChild(newColumn);
                 const newDiv = document.createElement("div");
                 newDiv.setAttribute("id", "x" + i + "y" + o);
@@ -47,71 +47,61 @@ function generationMap(emplacement, tableID) {
     } //function for new table
 
     function mapObstacle() {
-        for (let x = 0; x < 10; x++) {
-            let randomCas = mapCoord[Math.floor(Math.random() * mapCoord.length)];
-            let regexX = /(\d{1,2}(?=y))/g;
-            let foundX = randomCas.match(regexX);
-            let regexY = /(\d{1,2})$/g;
-            let foundY = randomCas.match(regexY);
+        for (let x = 0; x < 6; x++) {
+            let randomCas = mapCoord[Math.floor(Math.random() * mapCoord.length)]; //prend une case random
+            let regexX = /(\d{1,2}(?=y))/g; //regex pour X
+            let foundX = randomCas.match(regexX); //récupère le X
+            let regexY = /(\d{1,2})$/g; //regex pour le Y
+            let foundY = randomCas.match(regexY); //récupère le Y
+            let xpos2 = parseFloat(foundX) + parseFloat(2); //créer X + 2
+            let ypos2 = parseFloat(foundY) + parseFloat(2); //créer Y + 2
 
-            if (foundY == 0 || foundY == 1) {
-                var yneg1 = foundY;
-                var yneg2 = foundY;
-            } else {
-                var yneg1 = foundY - 1;
-                var yneg2 = foundY - 2;
-            }
-            if (foundY == 14 || foundY == 13) {
-                var ypos1 = foundY;
-                var ypos2 = foundY;
-            } else {
-                var ypos1 = parseFloat(foundY) +  parseFloat(1);
-                var ypos2 = parseFloat(foundY) +  parseFloat(2);
+            var plageX = []; //créer le tableau de la plage des X
+            var plageY = []; //créer le tableau de la plage des Y
+            var allPlage = []; //créer le tableau de toutes les plages
+
+            for (let z = 0; z < 5; z++) {
+                let numberX = xpos2 - z;
+                plageX.push(numberX); //incrémente la tableau des 5 plages possibles
+                let numberY = ypos2 - z;
+                plageY.push(numberY); //incrémente le tableau des 5 plages possibles
             }
 
-            if (foundX == 0 || foundX == 1) {
-                var xneg1 = foundX;
-                var xneg2 = foundX;
-            } else {
-                var xneg1 = foundX - 1;
-                var xneg2 = foundX - 2;
+            function negativ(currentValue) {
+                return currentValue > 0;
             }
-            if (foundX == 14 || foundX == 13) {
-                var xpos1 = foundX;
-                var xpos2 = foundX;
-            } else {
-                var xpos1 = parseFloat(foundX) +  parseFloat(1);
-                var xpos2 = parseFloat(foundX) +  parseFloat(2);
+
+            function overpositiv(currentValue) {
+                return currentValue < 14;
             }
-            let replacexneg1 = randomCas.replace(/(\d{1,2}(?=y))/g, xneg1);
-            let replacexneg2 = randomCas.replace(/(\d{1,2}(?=y))/g, xneg2);
-            let replacexpos1 = randomCas.replace(/(\d{1,2}(?=y))/g, xpos1);
-            let replacexpos2 = randomCas.replace(/(\d{1,2}(?=y))/g, xpos2);
-            let idRandomXneg1 = document.getElementById(replacexneg1);
-            let idRandomXneg2 = document.getElementById(replacexneg2);
-            let idRandomXpos1 = document.getElementById(replacexpos1);
-            let idRandomXpos2 = document.getElementById(replacexpos2);
 
-            let replaceyneg1 = randomCas.replace(/(\d{1,2})$/g, yneg1);
-            let replaceyneg2 = randomCas.replace(/(\d{1,2})$/g, yneg2);
-            let replaceypos1 = randomCas.replace(/(\d{1,2})$/g, ypos1);
-            let replaceypos2 = randomCas.replace(/(\d{1,2})$/g, ypos2);
-            let idRandomYneg1 = document.getElementById(replaceyneg1);
-            let idRandomYneg2 = document.getElementById(replaceyneg2);
-            let idRandomYpos1 = document.getElementById(replaceypos1);
-            let idRandomYpos2 = document.getElementById(replaceypos2);
+            console.log(plageX);
+            console.log(plageX.every(negativ)); //false
+            console.log(plageX.every(overpositiv)); //true
 
-            let idRandom = document.getElementById(randomCas);
-            if (idRandom.classList.contains("noSell") || idRandomXneg1.classList.contains("noSell") || idRandomXneg2.classList.contains("noSell") || idRandomXpos1.classList.contains("noSell") || idRandomXpos2.classList.contains("noSell") || idRandomYneg1.classList.contains("noSell") || idRandomYneg2.classList.contains("noSell") || idRandomYpos1.classList.contains("noSell") || idRandomYpos2.classList.contains("noSell") ) {
-                x--;
-            } else {
-                idRandom.classList.add("noSell", "baseMap");
-                let obstacleRandom = obstacle[Math.floor(Math.random() * obstacle.length)];
-                newImgMap(idRandom, obstacleRandom, "none", "obstacleImg", "none");
-                newImgMap(idRandom, mapImg, "none", "cellImg", "opacity02");
+            if (plageX.every(negativ) && plageX.every(overpositiv) && plageY.every(negativ) && plageY.every(overpositiv)) { //breakpoint
+                for (let u = 0; u < 5; u++) {
+                    for (let s = 0; s < 5; s++) {
+                        var plageTotal = "x" + plageX[s] + "y" + plageY[u];
+                        allPlage.push(plageTotal);
+                    }
+                } //ajoute toutes les possibilité de plages à mon tableau
+                for (let w = 0; w < 25; w++) {
+                    var plageId = document.getElementById(allPlage[w]);
+                    console.log(plageId);
+                        if (plageId.classList.contains("noSell")) {
+                            x--;
+                        } else {
+                            let idRandom = document.getElementById(randomCas);
+                            idRandom.classList.add("noSell", "baseMap");
+                            let obstacleRandom = obstacle[Math.floor(Math.random() * obstacle.length)];
+                            newImgMap(idRandom, obstacleRandom, "none", "obstacleImg", "none");
+                            newImgMap(idRandom, mapImg, "none", "cellImg", "opacity02");
+                        }
+                    }
+                } else { x--; }
             }
         }
-    }
 
     function RandomMap() {
         for (let y = 0; y < mapCoord.length; y++) {
