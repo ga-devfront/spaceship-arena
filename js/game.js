@@ -37,6 +37,8 @@ function generationMap(emplacement, tableID) {
                 newDiv.setAttribute("id", "x" + i + "y" + o);
                 newColumn.appendChild(newDiv);
                 newColumn.classList.add("gameGrid");
+                newDiv.classList.add("baseMap");
+                newImgMap(newDiv, mapImg, "none", "cellImg", "opacity02");
                 var newId = "x" + i + "y" + o;
                 mapCoord.push(newId);
             }
@@ -91,10 +93,9 @@ function generationMap(emplacement, tableID) {
                 }
                 if (testObstacl == 25) {
                     let idRandom = document.getElementById(randomCas);
-                    idRandom.classList.add("noSell", "baseMap");
+                    idRandom.classList.add("noSell");
                     let obstacleRandom = obstacle[Math.floor(Math.random() * obstacle.length)];
                     newImgMap(idRandom, obstacleRandom, "none", "obstacleImg", "none");
-                    newImgMap(idRandom, mapImg, "none", "cellImg", "opacity02"); //a enlever 
                 } else {
                     x--;
                 }
@@ -103,21 +104,6 @@ function generationMap(emplacement, tableID) {
             }
         }
     }
-
-    function RandomMap() {
-        for (let y = 0; y < mapCoord.length; y++) {
-            let coord = 0 + y;
-            let mapList = mapCoord[coord];
-            let idMap = document.getElementById(mapList);
-
-            if (idMap.classList.contains("noSell")) {
-
-            } else {
-                idMap.classList.add("baseMap");
-                newImgMap(idMap, mapImg, "none", "cellImg", "opacity02");
-            }
-        }
-    } //a implanter dans la création de cases et non en random
 
     function addPlayer() {
         for (let y = 0; y < 2; y++) {
@@ -134,6 +120,5 @@ function generationMap(emplacement, tableID) {
     }
     newMapTable();
     mapObstacle();
-    RandomMap();
     addPlayer();
 }
